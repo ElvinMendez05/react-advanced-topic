@@ -1,10 +1,13 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+// import { HookApp } from './HookApp'
+
 import './index.css'
-import App from './App.tsx'
+import { TrafficLight } from './01- useState/TrafficLight'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+     {/* <HookApp /> */}
+     <TrafficLight />
   </StrictMode>,
 )
