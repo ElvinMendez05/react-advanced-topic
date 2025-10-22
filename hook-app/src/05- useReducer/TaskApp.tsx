@@ -15,7 +15,7 @@ export const TasksApp = () => {
   const [state, dispatch] = useReducer(taskReducer, getTasksInicialState())
 
   useEffect(() => {
-     localStorage.setItem('tasks-state', JSON.stringify(StaticRange))
+     localStorage.setItem('tasks-state', JSON.stringify(state))
   }, [state]);
   
 
