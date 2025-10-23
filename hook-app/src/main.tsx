@@ -7,10 +7,13 @@ import { createRoot } from 'react-dom/client'
 // import { PokemonPage } from './03- examples/PokemonPage'
 // import { FocusScreen } from './04- useRef/FocusScreen'
 // import { TasksApp } from './05- useReducer/TaskApp'
-import './index.css'
-import { ScrumbleWords } from './05- useReducer/reducer/ScrumbleWords'
 ///import { ScrumbleWordsState } from './05- useReducer/reducer/ScrumbleWords-state'
+//import { ScrumbleWords } from './05- useReducer/reducer/ScrumbleWords'
+// import { MemoHook } from './06- memos/MemoHook'
+// import { MemoCounter } from './06- memos/MemoCounter'
+import { InstagromApp } from './07- useOptimistic/InstagromApp'
 
+import './index.css'
 
 
 
@@ -23,7 +26,10 @@ createRoot(document.getElementById('root')!).render(
      {/* <PokemonPage /> */}
      {/* <FocusScreen /> */}
      {/* <TasksApp /> */}
-     <ScrumbleWords />
+     {/* <ScrumbleWords /> */}
      {/* <ScrumbleWordsState /> */}
+     {/* <MemoHook /> */}
+     {/* <MemoCounter> */}
+     <InstagromApp />
   </StrictMode>,
 )
