@@ -41,7 +41,4 @@ export const usePokemon = ({id}: Props) => {
         formattedId: id.toString().padStart(3, '0'),
         
     }
-
-
-
 }
