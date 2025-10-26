@@ -1,4 +1,4 @@
-import { createContext, useState, type PropsWithChildren } from "react"
+import { createContext, useEffect, useState, type PropsWithChildren } from "react"
 import { users, type User } from "../data/user-mock.data";
 
 type authStatus = 'checking' | 'authenticated' | 'not-authenticated'
@@ -6,6 +6,7 @@ type authStatus = 'checking' | 'authenticated' | 'not-authenticated'
 interface UserContextProps {
     //State 
     authStatus: authStatus;
+    isAuthenticated: boolean;
     user: User | null;
     
     //Methods
@@ -32,20 +33,32 @@ export const UserContextProvider = ({children}: PropsWithChildren)=> {
 
        setUser(user);
        setAuthStatus('authenticated');
+       localStorage.setItem('userId', userId.toString())
        return true;
     }
+
+    useEffect(() => {
+       const storedUserId = localStorage.getItem('userId');
+       if (storedUserId) {
+        handleLogin(+storedUserId)
+        return;
+       } 
+       handleLogout();
+    }, [])
+    
 
     const handleLogout = () => {
         console.log('logout');
         setAuthStatus('not-authenticated');
-        setUser(null);        
+        setUser(null);     
+        localStorage.removeItem('userId')   
     }
    
     return (
-        
         <UserContext 
           value={{
             authStatus: authStatus,
+            isAuthenticated: authStatus === 'authenticated',
             user: user,
             login: handleLogin,
             logout: handleLogout    
