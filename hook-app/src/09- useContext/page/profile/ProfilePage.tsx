@@ -4,7 +4,7 @@ import { useContext } from "react";
 
 export const ProfilePage = () => {
   
-    const {user} = useContext(UserContext);
+    const {user, logout} = useContext(UserContext);
    
   return (
     <div className="flex flex-col items-center justify-center min-h-screeen">
@@ -13,7 +13,7 @@ export const ProfilePage = () => {
      
      <pre className="my-4">{JSON.stringify({user}, null, 2)}</pre> 
      
-     <Button variant={"destructive"}> Get out </Button>
+     <Button variant={"destructive"} onClick={logout}> Get out </Button>
     </div>
   )
 }
